@@ -25,7 +25,7 @@ export default function Footer() {
         }}
       />
 
-      <div className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-white/4 blur-[100px]" />
+      <div className="pointer-events-none absolute bottom-0 left-1/2 h-75 w-150 -translate-x-1/2 rounded-full bg-white/4 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12">
         <div className="flex flex-col gap-8 border-b border-white/10 py-16 md:flex-row md:items-center md:justify-between md:py-24">
@@ -55,7 +55,7 @@ export default function Footer() {
               <p className="mb-3 font-mono text-xl font-semibold lowercase tracking-tight">
                 aquity
               </p>
-              <p className="max-w-[220px] font-mono text-xs leading-relaxed text-white/35">
+              <p className="max-w-55 font-mono text-xs leading-relaxed text-white/35">
                 A digital product studio building fast, intentional, and
                 enduring experiences.
               </p>

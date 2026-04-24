@@ -95,7 +95,7 @@ export default function Blog() {
       />
 
       {/* Ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-white/5 blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-125 rounded-full bg-white/5 blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         {/* Page header */}
@@ -171,7 +171,7 @@ export default function Blog() {
             </div>
 
             {/* Featured image — Unsplash link */}
-            <div className="md:w-7/12 aspect-[16/10] md:aspect-auto overflow-hidden border border-white/10 group-hover:border-white/20 transition duration-300">
+            <div className="md:w-7/12 aspect-16/10 md:aspect-auto overflow-hidden border border-white/10 group-hover:border-white/20 transition duration-300">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
                 alt={featured.title}
@@ -190,10 +190,10 @@ export default function Blog() {
             {rest.map((post) => (
               <div
                 key={post.slug}
-                className="bg-black flex flex-col group cursor-pointer hover:bg-white/[0.025] transition duration-300"
+                className="bg-black flex flex-col group cursor-pointer hover:bg-white/2.5 transition duration-300"
               >
                 {/* Card image */}
-                <div className="aspect-[16/9] overflow-hidden border-b border-white/10">
+                <div className="aspect-video overflow-hidden border-b border-white/10">
                   <img
                     src={post.image}
                     alt={post.title}
@@ -245,7 +245,7 @@ export default function Blog() {
           ].map((s) => (
             <div
               key={s.label}
-              className="bg-black px-6 py-8 md:py-10 flex flex-col gap-2 hover:bg-white/[0.025] transition duration-300"
+              className="bg-black px-6 py-8 md:py-10 flex flex-col gap-2 hover:bg-white/2.5 transition duration-300"
             >
               <span className="text-2xl md:text-3xl font-semibold tracking-tight tabular-nums">
                 <CountUp end={s.end} duration={2} />
