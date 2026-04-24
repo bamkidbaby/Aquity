@@ -52,8 +52,8 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-10 border-b border-white/10 py-16 md:grid-cols-12 md:gap-6 md:py-20">
           <div className="col-span-2 flex flex-col gap-6 md:col-span-4">
             <div>
-              <p className="mb-3 font-mono text-xl font-semibold lowercase tracking-tight">
-                aquity
+              <p className="mb-3 font-mono text-xl font-semibold tracking-tight">
+                Aquity
               </p>
               <p className="max-w-55 font-mono text-xs leading-relaxed text-white/35">
                 A digital product studio building fast, intentional, and
