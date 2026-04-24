@@ -1,4 +1,4 @@
-import bg from "../assets/bg.jpg";
+import bg from "../assets/bg.png";
 import Navbar from "../layouts/Navbar";
 import Overlay from "../components/Overlay";
 
