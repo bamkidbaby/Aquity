@@ -116,12 +116,12 @@ export default function SignupPage() {
                 />
               </div>
 
-              <button
-                type="button"
+              <Link
+                to="/dashboard"
                 className="mt-2 border border-white/20 bg-white px-5 py-3 font-mono text-xs uppercase tracking-widest text-black transition duration-300 hover:bg-white/90"
               >
                 Create Account
-              </button>
+              </Link>
             </form>
 
             <div className="mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-5">

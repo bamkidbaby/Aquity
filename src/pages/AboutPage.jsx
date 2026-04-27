@@ -43,53 +43,13 @@ const team = [
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
   },
-  {
-    name: "Amara Nwosu",
-    role: "Head of Engineering",
-    image:
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80",
-  },
-  {
-    name: "Tunde Adeyemi",
-    role: "Lead Product Designer",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
-  },
-  {
-    name: "Zara Bello",
-    role: "Strategy & Growth",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
-  },
 ];
 
 const timeline = [
   {
-    year: "2019",
-    event: "Founded in Lagos with a single client and a shared vision.",
-  },
-  {
-    year: "2020",
+    year: "2026",
     event:
-      "Expanded into mobile and shipped 12 apps across fintech and health.",
-  },
-  {
-    year: "2021",
-    event: "Crossed 50 projects and opened our first formal studio space.",
-  },
-  {
-    year: "2022",
-    event:
-      "Launched our design system practice and welcomed our first international client.",
-  },
-  {
-    year: "2023",
-    event:
-      "Grew to a team of 14 and earned recognition among Africa's top digital studios.",
-  },
-  {
-    year: "2025",
-    event: "Delivered 120+ projects and kept the same day-one energy.",
+      "Founded by Peter Bamidele, a teenager with a passion for design and technology.",
   },
 ];
 

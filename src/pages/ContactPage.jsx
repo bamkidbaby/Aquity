@@ -262,13 +262,13 @@ export default function ContactPage() {
                 />
               </div>
 
-              <div className="flex items-center justify-between gap-4 border-t border-white/10 px-6 py-5">
+              <div className="flex flex-col gap-4 border-t border-white/10 px-6 py-5 md:flex-row md:items-center md:justify-between md:gap-4">
                 <p className="font-mono text-xs text-white/20">
                   We respond within 1 business day.
                 </p>
                 <button
                   type="submit"
-                  className="group flex items-center gap-3 border border-white/20 px-7 py-3 font-mono text-sm uppercase tracking-widest text-white/70 transition duration-300 hover:border-white hover:bg-white hover:text-black"
+                  className="group flex w-full items-center justify-center gap-3 border border-white/20 px-7 py-3 font-mono text-sm uppercase tracking-widest text-white/70 transition duration-300 hover:border-white hover:bg-white hover:text-black md:w-auto"
                 >
                   Send Message
                   <ArrowUpRight

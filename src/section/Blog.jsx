@@ -21,7 +21,10 @@ const rest = articles.filter((article) => article.slug !== featured.slug);
 
 export default function Blog() {
   return (
-    <section id="blog" className="relative min-h-screen overflow-hidden bg-transparent text-white">
+    <section
+      id="blog"
+      className="relative min-h-screen overflow-hidden bg-transparent text-white"
+    >
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -74,8 +77,8 @@ export default function Blog() {
           <p className="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-white/25">
             Featured Article
           </p>
-          <div className="flex flex-col gap-10 md:flex-row md:items-stretch md:gap-16">
-            <div className="flex gap-8 md:w-5/12 md:flex-col md:justify-between">
+          <div className="flex flex-col gap-6 md:flex-row md:items-stretch md:gap-16">
+            <div className="flex flex-col gap-6 md:w-5/12 md:justify-between">
               <div>
                 <div className="mb-6 flex items-center gap-4">
                   <span className="border border-white/15 px-3 py-1 font-mono text-xs uppercase tracking-widest text-white/40">
@@ -106,7 +109,7 @@ export default function Blog() {
               </div>
             </div>
 
-            <div className="aspect-16/10 overflow-hidden border border-white/10 transition duration-300 group-hover:border-white/20 md:w-7/12 md:aspect-auto">
+            <div className="aspect-video overflow-hidden border border-white/10 transition duration-300 group-hover:border-white/20 md:w-7/12 md:aspect-auto">
               <img
                 src={featured.image}
                 alt={featured.title}
