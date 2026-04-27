@@ -1,8 +1,5 @@
-const links = {
-  Company: ["About", "Blog", "Careers", "Press"],
-  Services: ["Strategy", "Design", "Engineering", "Scale"],
-  Legal: ["Privacy Policy", "Terms of Use", "Cookie Policy"],
-};
+import { Link } from "react-router-dom";
+import { footerLinks } from "../content/staticPages";
 
 const socials = [
   { label: "Instagram", href: "#" },
@@ -14,7 +11,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="relative overflow-hidden border-t border-white/10 bg-black text-white"
+      className="relative overflow-hidden border-t border-white/10 bg-transparent text-white"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.025]"
@@ -86,7 +83,7 @@ export default function Footer() {
 
           <div className="hidden md:col-span-2 md:block" />
 
-          {Object.entries(links).map(([group, items]) => (
+          {Object.entries(footerLinks).map(([group, items]) => (
             <div
               key={group}
               className="col-span-1 flex flex-col gap-5 md:col-span-2"
@@ -96,13 +93,13 @@ export default function Footer() {
               </p>
               <ul className="flex flex-col gap-3">
                 {items.map((item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="font-mono text-xs tracking-wide text-white/45 transition duration-200 hover:text-white"
+                  <li key={item.label}>
+                    <Link
+                      to={item.to}
+                      className="font-mono text-xs cursor-pointer tracking-wide text-white/45 transition duration-200 hover:text-white"
                     >
-                      {item}
-                    </a>
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -116,18 +113,18 @@ export default function Footer() {
             reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a
-              href="#"
+            <Link
+              to="/privacy"
               className="font-mono text-xs text-white/25 transition duration-200 hover:text-white/60"
             >
               Privacy
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/terms"
               className="font-mono text-xs text-white/25 transition duration-200 hover:text-white/60"
             >
               Terms
-            </a>
+            </Link>
             <span className="font-mono text-xs text-white/15">
               Lagos, Nigeria
             </span>

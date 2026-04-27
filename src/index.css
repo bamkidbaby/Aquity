@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+.animated-text {
+  display: block;
+}
+
+.animated-text__line {
+  display: block;
+  overflow: hidden;
+}
+
+.animated-text__word {
+  display: inline-block;
+  transform: translate3d(0, 1.05em, 0);
+  opacity: 0;
+  filter: blur(6px);
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.8s ease,
+    filter 0.8s ease;
+  will-change: transform, opacity, filter;
+}
+
+.aos-animate .animated-text__word {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  filter: blur(0);
+}
