@@ -4,6 +4,8 @@ import AnimatedText from "../components/AnimatedText";
 import PageFrame from "../components/PageFrame";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
+import { submitInquiry } from "../lib/api";
+import { validateEmail, validateMessage, validateName } from "../lib/validation";
 
 const budgets = ["< $5k", "$5k - $15k", "$15k - $50k", "$50k+"];
 const types = ["Website", "Web App", "Branding", "Strategy", "Other"];
@@ -28,8 +30,11 @@ export default function ContactPage() {
     budget: "",
     type: "",
     message: "",
+    website: "",
   });
   const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handle = (event) =>
     setForm((current) => ({
@@ -42,18 +47,55 @@ export default function ContactPage() {
 
   const resetForm = () => {
     setSent(false);
+    setError("");
     setForm({
       name: "",
       email: "",
       budget: "",
       type: "",
       message: "",
+      website: "",
     });
   };
 
-  const submit = (event) => {
+  const submit = async (event) => {
     event.preventDefault();
-    setSent(true);
+    if (form.website) {
+      setError("Unable to process submission.");
+      return;
+    }
+
+    if (!validateName(form.name)) {
+      setError("Enter your name.");
+      return;
+    }
+
+    if (!validateEmail(form.email)) {
+      setError("Enter a valid email.");
+      return;
+    }
+
+    if (!form.budget || !form.type) {
+      setError("Choose a budget range and project type.");
+      return;
+    }
+
+    if (!validateMessage(form.message)) {
+      setError("Project details should be between 20 and 2000 characters.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      await submitInquiry(form);
+      setSent(true);
+    } catch (requestError) {
+      setError(requestError.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -248,6 +290,14 @@ export default function ContactPage() {
               </div>
 
               <div className="flex flex-col gap-2 border-t border-white/10 px-6 py-5">
+                <input
+                  name="website"
+                  value={form.website}
+                  onChange={handle}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                />
                 <label className="font-mono text-xs uppercase tracking-widest text-white/25">
                   Tell us about your project
                 </label>
@@ -263,14 +313,19 @@ export default function ContactPage() {
               </div>
 
               <div className="flex flex-col gap-4 border-t border-white/10 px-6 py-5 md:flex-row md:items-center md:justify-between md:gap-4">
-                <p className="font-mono text-xs text-white/20">
-                  We respond within 1 business day.
-                </p>
+                <div className="grid gap-2">
+                  <p className="font-mono text-xs text-white/20">
+                    We respond within 1 business day.
+                  </p>
+                  {error ? (
+                    <p className="font-mono text-xs text-red-300">{error}</p>
+                  ) : null}
+                </div>
                 <button
                   type="submit"
                   className="group flex w-full items-center justify-center gap-3 border border-white/20 px-7 py-3 font-mono text-sm uppercase tracking-widest text-white/70 transition duration-300 hover:border-white hover:bg-white hover:text-black md:w-auto"
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                   <ArrowUpRight
                     size={13}
                     className="transition duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
